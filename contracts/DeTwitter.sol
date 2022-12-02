@@ -4,6 +4,7 @@ pragma solidity ^0.8.9;
 // decentralize twitter
 
 error DeTitter_AlreadySignIn();
+error DeTitter_NotSignIn();
 error DeTitter_UserNametaken();
 error DeTitter_EmptyContain();
 error DeTitter_ContainTooLarge();
@@ -47,6 +48,9 @@ contract DeTwitter {
   mapping(address => string) private s_usernames;
   mapping(uint256 => Comment[]) private s_postToComment;
 
+  /* Events */
+  event NewTwitte(uint256 indexed post_id);
+
   // State functions
 
   function signUp(
@@ -61,6 +65,7 @@ contract DeTwitter {
     if (s_users[_username].user_address != address(0)) {
       revert DeTitter_UserNametaken();
     }
+
     s_usernames[msg.sender] = _username;
     s_users[_username] = User({
       user_address: msg.sender,
@@ -75,7 +80,7 @@ contract DeTwitter {
 
   function AddNewDeTwitt(string memory _post) public {
     if (bytes(s_usernames[msg.sender]).length <= 0) {
-      revert DeTitter_AlreadySignIn();
+      revert DeTitter_NotSignIn();
     }
 
     if (bytes(_post).length <= 0) {
@@ -87,7 +92,6 @@ contract DeTwitter {
     }
 
     // Comment[] storage comments = new Comment[](10);
-    s_post_ids.push(s_post_ids.length);
     Post memory post = Post({
       post_id: s_post_ids.length,
       post: _post,
@@ -97,6 +101,8 @@ contract DeTwitter {
       comment_count: 0
     });
     s_posts[s_post_ids.length] = post;
+    emit NewTwitte(s_post_ids.length);
+    s_post_ids.push(s_post_ids.length);
   }
 
   function GetAllDeTwittes() public view returns (Post[] memory) {
@@ -109,6 +115,9 @@ contract DeTwitter {
   }
 
   function deleteDeTweet(uint256 post_id) public {
+    if (bytes(s_usernames[msg.sender]).length <= 0) {
+      revert DeTitter_NotSignIn();
+    }
     for (uint i = 0; i < s_post_ids.length; i++) {
       if (s_post_ids[i] == post_id) {
         s_post_ids[i] = s_post_ids[s_post_ids.length - 1];
@@ -119,14 +128,23 @@ contract DeTwitter {
   }
 
   function likeDeTweet(uint256 post_id) public {
+    if (bytes(s_usernames[msg.sender]).length <= 0) {
+      revert DeTitter_NotSignIn();
+    }
     s_posts[post_id].like_count++;
   }
 
   function dislikeDeTweet(uint256 post_id) public {
+    if (bytes(s_usernames[msg.sender]).length <= 0) {
+      revert DeTitter_NotSignIn();
+    }
     s_posts[post_id].dislike_count++;
   }
 
   function commentDeTweet(uint256 _post_id, string memory _comment) public {
+     if (bytes(s_usernames[msg.sender]).length <= 0) {
+      revert DeTitter_NotSignIn();
+    }
     Comment memory comment = Comment({
       post_id: _post_id,
       comment_by: msg.sender,
@@ -138,9 +156,48 @@ contract DeTwitter {
     s_posts[_post_id].comment_count++;
   }
 
-  // user like the post
-  // user comment the post
   // user uproot/down root the comment
 
   // pure functions
+
+  function getUserNameByAddress(
+    address _user_address
+  ) public view returns (string memory) {
+    return s_usernames[_user_address];
+  }
+
+  function getUsers(string memory _username) public view returns (User memory) {
+    return s_users[_username];
+  }
+
+  function getCreatedTweets(
+    address _userAddress
+  ) public view returns (Post[] memory) {
+    require(_userAddress != address(0), "User not found");
+    uint myTweetLen = 0;
+    for (uint i = 0; i < s_post_ids.length; i++) {
+      uint currentId = s_post_ids[i];
+      Post storage currentTweet = s_posts[currentId];
+      if (currentTweet.owner == _userAddress) {
+        myTweetLen++;
+      }
+    }
+
+    Post[] memory allTweets = new Post[](myTweetLen);
+    uint currIndex = 0;
+    for (uint i = 0; i < s_post_ids.length; i++) {
+      uint currentId = s_post_ids[i];
+      Post storage currentTweet = s_posts[currentId];
+      if (currentTweet.owner == _userAddress) {
+        allTweets[currIndex] = currentTweet;
+        currIndex++;
+      }
+    }
+
+    return allTweets;
+  }
+
+  function getPostDetails(uint _post_id) public view returns (Post memory) {
+    return s_posts[s_post_ids[_post_id]];
+  }
 }
