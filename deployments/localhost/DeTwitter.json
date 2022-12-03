@@ -1,0 +1,731 @@
+{
+  "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "DeTitter_AlreadySignIn",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "DeTitter_ContainTooLarge",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "DeTitter_EmptyContain",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "DeTitter_NotSignIn",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "DeTitter_UserNametaken",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "post_id",
+          "type": "uint256"
+        }
+      ],
+      "name": "NewTwitte",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_post",
+          "type": "string"
+        }
+      ],
+      "name": "AddNewDeTwitt",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "GetAllDeTwittes",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "post_id",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "post",
+              "type": "string"
+            },
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "like_count",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "dislike_count",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "comment_count",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "timestamp",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct DeTwitter.Post[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_post_id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "_comment",
+          "type": "string"
+        }
+      ],
+      "name": "commentDeTweet",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "post_id",
+          "type": "uint256"
+        }
+      ],
+      "name": "deleteDeTweet",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "post_id",
+          "type": "uint256"
+        }
+      ],
+      "name": "dislikeDeTweet",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_userAddress",
+          "type": "address"
+        }
+      ],
+      "name": "getCreatedTweets",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "post_id",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "post",
+              "type": "string"
+            },
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "like_count",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "dislike_count",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "comment_count",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "timestamp",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct DeTwitter.Post[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_post_id",
+          "type": "uint256"
+        }
+      ],
+      "name": "getPostDetails",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "post_id",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "post",
+              "type": "string"
+            },
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "like_count",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "dislike_count",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "comment_count",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "timestamp",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct DeTwitter.Post",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_user_address",
+          "type": "address"
+        }
+      ],
+      "name": "getUser",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "user_address",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "post_count",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "username",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "imgURI",
+              "type": "string"
+            }
+          ],
+          "internalType": "struct DeTwitter.User",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_user_address",
+          "type": "address"
+        }
+      ],
+      "name": "getUserNameByAddress",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "post_id",
+          "type": "uint256"
+        }
+      ],
+      "name": "likeDeTweet",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "s_post_ids",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "s_posts",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "post_id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "post",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "like_count",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "dislike_count",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "comment_count",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_username",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_name",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_imgURI",
+          "type": "string"
+        }
+      ],
+      "name": "signUp",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xd534b81d4bfcc6a5045f49d902ac4724653b4927dfcb70e2a5c500934d3d9ea7",
+  "receipt": {
+    "to": null,
+    "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    "contractAddress": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+    "transactionIndex": 0,
+    "gasUsed": "2171808",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0xe5601a8a705eff371e22f05bf5f50038119aafc958f9383d38965de991fc6f1b",
+    "transactionHash": "0xd534b81d4bfcc6a5045f49d902ac4724653b4927dfcb70e2a5c500934d3d9ea7",
+    "logs": [],
+    "blockNumber": 1,
+    "cumulativeGasUsed": "2171808",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "6d10784a89107a81a1a2de69f0693a9e",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"DeTitter_AlreadySignIn\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"DeTitter_ContainTooLarge\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"DeTitter_EmptyContain\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"DeTitter_NotSignIn\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"DeTitter_UserNametaken\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"post_id\",\"type\":\"uint256\"}],\"name\":\"NewTwitte\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_post\",\"type\":\"string\"}],\"name\":\"AddNewDeTwitt\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"GetAllDeTwittes\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"post_id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"post\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"like_count\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"dislike_count\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"comment_count\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"}],\"internalType\":\"struct DeTwitter.Post[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_post_id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"_comment\",\"type\":\"string\"}],\"name\":\"commentDeTweet\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"post_id\",\"type\":\"uint256\"}],\"name\":\"deleteDeTweet\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"post_id\",\"type\":\"uint256\"}],\"name\":\"dislikeDeTweet\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_userAddress\",\"type\":\"address\"}],\"name\":\"getCreatedTweets\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"post_id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"post\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"like_count\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"dislike_count\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"comment_count\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"}],\"internalType\":\"struct DeTwitter.Post[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_post_id\",\"type\":\"uint256\"}],\"name\":\"getPostDetails\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"post_id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"post\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"like_count\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"dislike_count\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"comment_count\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"}],\"internalType\":\"struct DeTwitter.Post\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_user_address\",\"type\":\"address\"}],\"name\":\"getUser\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"user_address\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"post_count\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"username\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"imgURI\",\"type\":\"string\"}],\"internalType\":\"struct DeTwitter.User\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_user_address\",\"type\":\"address\"}],\"name\":\"getUserNameByAddress\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"post_id\",\"type\":\"uint256\"}],\"name\":\"likeDeTweet\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"s_post_ids\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"s_posts\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"post_id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"post\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"like_count\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"dislike_count\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"comment_count\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_username\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_imgURI\",\"type\":\"string\"}],\"name\":\"signUp\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"stateVariables\":{\"s_users\":{\"details\":\"this variable is use checking if user is exists and usrname will act as a id\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/DeTwitter.sol\":\"DeTwitter\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/DeTwitter.sol\":{\"content\":\"// SPDX-License-Identifier: UNLICENSED\\r\\npragma solidity ^0.8.9;\\r\\n\\r\\n// decentralize twitter\\r\\n\\r\\nerror DeTitter_AlreadySignIn();\\r\\nerror DeTitter_NotSignIn();\\r\\nerror DeTitter_UserNametaken();\\r\\nerror DeTitter_EmptyContain();\\r\\nerror DeTitter_ContainTooLarge();\\r\\n\\r\\ncontract DeTwitter {\\r\\n  // structures\\r\\n  struct User {\\r\\n    address user_address;\\r\\n    uint256 post_count;\\r\\n    string name;\\r\\n    string username;\\r\\n    string imgURI;\\r\\n  }\\r\\n\\r\\n  struct Post {\\r\\n    uint256 post_id;\\r\\n    string post;\\r\\n    address owner;\\r\\n    uint256 like_count;\\r\\n    uint256 dislike_count;\\r\\n    uint256 comment_count;\\r\\n    uint timestamp;\\r\\n  }\\r\\n\\r\\n  struct Comment {\\r\\n    uint256 post_id;\\r\\n    address comment_by;\\r\\n    uint256 uproot_count;\\r\\n    uint256 downroot_count;\\r\\n    string comment;\\r\\n  }\\r\\n\\r\\n  // state variables\\r\\n\\r\\n  // address[] private s_users;\\r\\n  mapping(uint256 => Post) public s_posts;\\r\\n  uint256[] public s_post_ids;\\r\\n  /**\\r\\n   * @dev this variable is use checking if user is exists and usrname will act as a id\\r\\n   */\\r\\n  mapping(string => User) private s_users;\\r\\n  mapping(address => string) private s_usernames;\\r\\n  mapping(uint256 => Comment[]) private s_postToComment;\\r\\n\\r\\n  /* Events */\\r\\n  event NewTwitte(uint256 indexed post_id);\\r\\n\\r\\n  // State functions\\r\\n\\r\\n  function signUp(\\r\\n    string memory _username,\\r\\n    string memory _name,\\r\\n    string memory _imgURI\\r\\n  ) public {\\r\\n    if (bytes(s_usernames[msg.sender]).length != 0) {\\r\\n      revert DeTitter_AlreadySignIn();\\r\\n    }\\r\\n\\r\\n    if (s_users[_username].user_address != address(0)) {\\r\\n      revert DeTitter_UserNametaken();\\r\\n    }\\r\\n\\r\\n    s_usernames[msg.sender] = _username;\\r\\n    s_users[_username] = User({\\r\\n      user_address: msg.sender,\\r\\n      post_count: 0,\\r\\n      name: _name,\\r\\n      username: _username,\\r\\n      imgURI: _imgURI\\r\\n    });\\r\\n  }\\r\\n\\r\\n  // user post something\\r\\n\\r\\n  function AddNewDeTwitt(string memory _post) public {\\r\\n    if (bytes(s_usernames[msg.sender]).length <= 0) {\\r\\n      revert DeTitter_NotSignIn();\\r\\n    }\\r\\n\\r\\n    if (bytes(_post).length <= 0) {\\r\\n      revert DeTitter_EmptyContain();\\r\\n    }\\r\\n\\r\\n    if (bytes(_post).length > 288) {\\r\\n      revert DeTitter_ContainTooLarge();\\r\\n    }\\r\\n\\r\\n    // Comment[] storage comments = new Comment[](10);\\r\\n    Post memory post = Post({\\r\\n      post_id: s_post_ids.length,\\r\\n      post: _post,\\r\\n      owner: msg.sender,\\r\\n      like_count: 0,\\r\\n      dislike_count: 0,\\r\\n      comment_count: 0,\\r\\n      timestamp: block.timestamp\\r\\n    });\\r\\n    s_posts[s_post_ids.length] = post;\\r\\n    emit NewTwitte(s_post_ids.length);\\r\\n    s_post_ids.push(s_post_ids.length);\\r\\n  }\\r\\n\\r\\n  function GetAllDeTwittes() public view returns (Post[] memory) {\\r\\n    Post[] memory posts = new Post[](s_post_ids.length);\\r\\n    for (uint i = 0; i < s_post_ids.length; i++) {\\r\\n      posts[i] = s_posts[s_post_ids[i]];\\r\\n    }\\r\\n\\r\\n    return posts;\\r\\n  }\\r\\n\\r\\n  function deleteDeTweet(uint256 post_id) public {\\r\\n    if (bytes(s_usernames[msg.sender]).length <= 0) {\\r\\n      revert DeTitter_NotSignIn();\\r\\n    }\\r\\n    for (uint i = 0; i < s_post_ids.length; i++) {\\r\\n      if (s_post_ids[i] == post_id) {\\r\\n        s_post_ids[i] = s_post_ids[s_post_ids.length - 1];\\r\\n        s_post_ids.pop();\\r\\n      }\\r\\n    }\\r\\n    delete s_posts[post_id];\\r\\n  }\\r\\n\\r\\n  function likeDeTweet(uint256 post_id) public {\\r\\n    if (bytes(s_usernames[msg.sender]).length <= 0) {\\r\\n      revert DeTitter_NotSignIn();\\r\\n    }\\r\\n    s_posts[post_id].like_count++;\\r\\n  }\\r\\n\\r\\n  function dislikeDeTweet(uint256 post_id) public {\\r\\n    if (bytes(s_usernames[msg.sender]).length <= 0) {\\r\\n      revert DeTitter_NotSignIn();\\r\\n    }\\r\\n    s_posts[post_id].dislike_count++;\\r\\n  }\\r\\n\\r\\n  function commentDeTweet(uint256 _post_id, string memory _comment) public {\\r\\n     if (bytes(s_usernames[msg.sender]).length <= 0) {\\r\\n      revert DeTitter_NotSignIn();\\r\\n    }\\r\\n    Comment memory comment = Comment({\\r\\n      post_id: _post_id,\\r\\n      comment_by: msg.sender,\\r\\n      uproot_count: 0,\\r\\n      downroot_count: 0,\\r\\n      comment: _comment\\r\\n    });\\r\\n    s_postToComment[_post_id].push(comment);\\r\\n    s_posts[_post_id].comment_count++;\\r\\n  }\\r\\n\\r\\n  // user uproot/down root the comment\\r\\n\\r\\n  // pure functions\\r\\n\\r\\n  function getUserNameByAddress(\\r\\n    address _user_address\\r\\n  ) public view returns (string memory) {\\r\\n    return s_usernames[_user_address];\\r\\n  }\\r\\n\\r\\n  function getUser(address _user_address) public view returns (User memory) {\\r\\n    return s_users[s_usernames[_user_address]];\\r\\n  }\\r\\n\\r\\n  function getCreatedTweets(\\r\\n    address _userAddress\\r\\n  ) public view returns (Post[] memory) {\\r\\n    require(_userAddress != address(0), \\\"User not found\\\");\\r\\n    uint myTweetLen = 0;\\r\\n    for (uint i = 0; i < s_post_ids.length; i++) {\\r\\n      uint currentId = s_post_ids[i];\\r\\n      Post storage currentTweet = s_posts[currentId];\\r\\n      if (currentTweet.owner == _userAddress) {\\r\\n        myTweetLen++;\\r\\n      }\\r\\n    }\\r\\n\\r\\n    Post[] memory allTweets = new Post[](myTweetLen);\\r\\n    uint currIndex = 0;\\r\\n    for (uint i = 0; i < s_post_ids.length; i++) {\\r\\n      uint currentId = s_post_ids[i];\\r\\n      Post storage currentTweet = s_posts[currentId];\\r\\n      if (currentTweet.owner == _userAddress) {\\r\\n        allTweets[currIndex] = currentTweet;\\r\\n        currIndex++;\\r\\n      }\\r\\n    }\\r\\n\\r\\n    return allTweets;\\r\\n  }\\r\\n\\r\\n  function getPostDetails(uint _post_id) public view returns (Post memory) {\\r\\n    return s_posts[s_post_ids[_post_id]];\\r\\n  }\\r\\n}\\r\\n\",\"keccak256\":\"0x1d68a84301c5f4ac2bef97a65eaf817f3a3dd30682d3fd360a84f59223925a8e\",\"license\":\"UNLICENSED\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5061266f806100206000396000f3fe608060405234801561001057600080fd5b50600436106100ce5760003560e01c80639fc226f41161008c578063cb2b6f1411610066578063cb2b6f141461024f578063d6143c011461026b578063db366eac14610287578063f56e7ada146102a3576100ce565b80639fc226f4146101d1578063ac1b97f614610201578063aca852a014610231576100ce565b8062f0b205146100d357806310fe472b146101035780634e04a4d2146101335780636f77926b14610169578063991fb19314610199578063997d9fd3146101b5575b600080fd5b6100ed60048036038101906100e89190611913565b6102bf565b6040516100fa919061194f565b60405180910390f35b61011d600480360381019061011891906119c8565b6102e3565b60405161012a9190611a85565b60405180910390f35b61014d60048036038101906101489190611913565b6103b4565b6040516101609796959493929190611ab6565b60405180910390f35b610183600480360381019061017e91906119c8565b61049e565b6040516101909190611c18565b60405180910390f35b6101b360048036038101906101ae9190611913565b61072a565b005b6101cf60048036038101906101ca9190611913565b6107dd565b005b6101eb60048036038101906101e69190611913565b610890565b6040516101f89190611cd6565b60405180910390f35b61021b600480360381019061021691906119c8565b6109f4565b6040516102289190611e56565b60405180910390f35b610239610d98565b6040516102469190611e56565b60405180910390f35b61026960048036038101906102649190611fad565b610f95565b005b61028560048036038101906102809190612054565b611205565b005b6102a1600480360381019061029c9190611913565b6113b7565b005b6102bd60048036038101906102b891906120b0565b611575565b005b600181815481106102cf57600080fd5b906000526020600020016000915090505481565b6060600360008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020805461032f90612128565b80601f016020809104026020016040519081016040528092919081815260200182805461035b90612128565b80156103a85780601f1061037d576101008083540402835291602001916103a8565b820191906000526020600020905b81548152906001019060200180831161038b57829003601f168201915b50505050509050919050565b60006020528060005260406000206000915090508060000154908060010180546103dd90612128565b80601f016020809104026020016040519081016040528092919081815260200182805461040990612128565b80156104565780601f1061042b57610100808354040283529160200191610456565b820191906000526020600020905b81548152906001019060200180831161043957829003601f168201915b5050505050908060020160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060030154908060040154908060050154908060060154905087565b6104a66117d4565b6002600360008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206040516104f491906121fc565b90815260200160405180910390206040518060a00160405290816000820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020016001820154815260200160028201805461057d90612128565b80601f01602080910402602001604051908101604052809291908181526020018280546105a990612128565b80156105f65780601f106105cb576101008083540402835291602001916105f6565b820191906000526020600020905b8154815290600101906020018083116105d957829003601f168201915b5050505050815260200160038201805461060f90612128565b80601f016020809104026020016040519081016040528092919081815260200182805461063b90612128565b80156106885780601f1061065d57610100808354040283529160200191610688565b820191906000526020600020905b81548152906001019060200180831161066b57829003601f168201915b505050505081526020016004820180546106a190612128565b80601f01602080910402602001604051908101604052809291908181526020018280546106cd90612128565b801561071a5780601f106106ef5761010080835404028352916020019161071a565b820191906000526020600020905b8154815290600101906020018083116106fd57829003601f168201915b5050505050815250509050919050565b6000600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020805461077690612128565b9050116107af576040517f6ea052f700000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60008082815260200190815260200160002060030160008154809291906107d590612242565b919050555050565b6000600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020805461082990612128565b905011610862576040517f6ea052f700000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b600080828152602001908152602001600020600401600081548092919061088890612242565b919050555050565b610898611819565b600080600184815481106108af576108ae61228a565b5b906000526020600020015481526020019081526020016000206040518060e0016040529081600082015481526020016001820180546108ed90612128565b80601f016020809104026020016040519081016040528092919081815260200182805461091990612128565b80156109665780601f1061093b57610100808354040283529160200191610966565b820191906000526020600020905b81548152906001019060200180831161094957829003601f168201915b505050505081526020016002820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020016003820154815260200160048201548152602001600582015481526020016006820154815250509050919050565b6060600073ffffffffffffffffffffffffffffffffffffffff168273ffffffffffffffffffffffffffffffffffffffff1603610a65576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610a5c90612305565b60405180910390fd5b6000805b600180549050811015610b2a57600060018281548110610a8c57610a8b61228a565b5b90600052602060002001549050600080600083815260200190815260200160002090508573ffffffffffffffffffffffffffffffffffffffff168160020160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1603610b15578380610b1190612242565b9450505b50508080610b2290612242565b915050610a69565b5060008167ffffffffffffffff811115610b4757610b46611e82565b5b604051908082528060200260200182016040528015610b8057816020015b610b6d611819565b815260200190600190039081610b655790505b5090506000805b600180549050811015610d8c57600060018281548110610baa57610ba961228a565b5b90600052602060002001549050600080600083815260200190815260200160002090508773ffffffffffffffffffffffffffffffffffffffff168160020160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1603610d7757806040518060e001604052908160008201548152602001600182018054610c4a90612128565b80601f0160208091040260200160405190810160405280929190818152602001828054610c7690612128565b8015610cc35780601f10610c9857610100808354040283529160200191610cc3565b820191906000526020600020905b815481529060010190602001808311610ca657829003601f168201915b505050505081526020016002820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001600382015481526020016004820154815260200160058201548152602001600682015481525050858581518110610d5d57610d5c61228a565b5b60200260200101819052508380610d7390612242565b9450505b50508080610d8490612242565b915050610b87565b50819350505050919050565b6060600060018054905067ffffffffffffffff811115610dbb57610dba611e82565b5b604051908082528060200260200182016040528015610df457816020015b610de1611819565b815260200190600190039081610dd95790505b50905060005b600180549050811015610f8d5760008060018381548110610e1e57610e1d61228a565b5b906000526020600020015481526020019081526020016000206040518060e001604052908160008201548152602001600182018054610e5c90612128565b80601f0160208091040260200160405190810160405280929190818152602001828054610e8890612128565b8015610ed55780601f10610eaa57610100808354040283529160200191610ed5565b820191906000526020600020905b815481529060010190602001808311610eb857829003601f168201915b505050505081526020016002820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001600382015481526020016004820154815260200160058201548152602001600682015481525050828281518110610f6f57610f6e61228a565b5b60200260200101819052508080610f8590612242565b915050610dfa565b508091505090565b6000600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000208054610fe190612128565b90501461101a576040517fe7b9820700000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b600073ffffffffffffffffffffffffffffffffffffffff166002846040516110429190612356565b908152602001604051809103902060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16146110c1576040517f9588623100000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b82600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020908161110d9190612504565b506040518060a001604052803373ffffffffffffffffffffffffffffffffffffffff168152602001600081526020018381526020018481526020018281525060028460405161115c9190612356565b908152602001604051809103902060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506020820151816001015560408201518160020190816111d09190612504565b5060608201518160030190816111e69190612504565b5060808201518160040190816111fc9190612504565b50905050505050565b6000600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020805461125190612128565b90501161128a576040517f6ea052f700000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60006040518060a001604052808481526020013373ffffffffffffffffffffffffffffffffffffffff1681526020016000815260200160008152602001838152509050600460008481526020019081526020016000208190806001815401808255809150506001900390600052602060002090600502016000909190919091506000820151816000015560208201518160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550604082015181600201556060820151816003015560808201518160040190816113849190612504565b50505060008084815260200190815260200160002060050160008154809291906113ad90612242565b9190505550505050565b6000600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020805461140390612128565b90501161143c576040517f6ea052f700000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60005b6001805490508110156114fd5781600182815481106114615761146061228a565b5b9060005260206000200154036114ea57600180808054905061148391906125d6565b815481106114945761149361228a565b5b9060005260206000200154600182815481106114b3576114b261228a565b5b906000526020600020018190555060018054806114d3576114d261260a565b5b600190038181906000526020600020016000905590555b80806114f590612242565b91505061143f565b50600080828152602001908152602001600020600080820160009055600182016000611529919061186c565b6002820160006101000a81549073ffffffffffffffffffffffffffffffffffffffff02191690556003820160009055600482016000905560058201600090556006820160009055505050565b6000600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002080546115c190612128565b9050116115fa576040517f6ea052f700000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000815111611635576040517f5bd9966000000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b61012081511115611672576040517f511de86200000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60006040518060e0016040528060018054905081526020018381526020013373ffffffffffffffffffffffffffffffffffffffff1681526020016000815260200160008152602001600081526020014281525090508060008060018054905081526020019081526020016000206000820151816000015560208201518160010190816116fe9190612504565b5060408201518160020160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550606082015181600301556080820151816004015560a0820151816005015560c082015181600601559050506001805490507fd417cb85437645827d67d25d46230d406c961d982fd13e671384fdc0bf43d27860405160405180910390a26001808054905090806001815401808255809150506001900390600052602060002001600090919091909150555050565b6040518060a00160405280600073ffffffffffffffffffffffffffffffffffffffff168152602001600081526020016060815260200160608152602001606081525090565b6040518060e001604052806000815260200160608152602001600073ffffffffffffffffffffffffffffffffffffffff168152602001600081526020016000815260200160008152602001600081525090565b50805461187890612128565b6000825580601f1061188a57506118a9565b601f0160209004906000526020600020908101906118a891906118ac565b5b50565b5b808211156118c55760008160009055506001016118ad565b5090565b6000604051905090565b600080fd5b600080fd5b6000819050919050565b6118f0816118dd565b81146118fb57600080fd5b50565b60008135905061190d816118e7565b92915050565b600060208284031215611929576119286118d3565b5b6000611937848285016118fe565b91505092915050565b611949816118dd565b82525050565b60006020820190506119646000830184611940565b92915050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b60006119958261196a565b9050919050565b6119a58161198a565b81146119b057600080fd5b50565b6000813590506119c28161199c565b92915050565b6000602082840312156119de576119dd6118d3565b5b60006119ec848285016119b3565b91505092915050565b600081519050919050565b600082825260208201905092915050565b60005b83811015611a2f578082015181840152602081019050611a14565b60008484015250505050565b6000601f19601f8301169050919050565b6000611a57826119f5565b611a618185611a00565b9350611a71818560208601611a11565b611a7a81611a3b565b840191505092915050565b60006020820190508181036000830152611a9f8184611a4c565b905092915050565b611ab08161198a565b82525050565b600060e082019050611acb600083018a611940565b8181036020830152611add8189611a4c565b9050611aec6040830188611aa7565b611af96060830187611940565b611b066080830186611940565b611b1360a0830185611940565b611b2060c0830184611940565b98975050505050505050565b611b358161198a565b82525050565b611b44816118dd565b82525050565b600082825260208201905092915050565b6000611b66826119f5565b611b708185611b4a565b9350611b80818560208601611a11565b611b8981611a3b565b840191505092915050565b600060a083016000830151611bac6000860182611b2c565b506020830151611bbf6020860182611b3b565b5060408301518482036040860152611bd78282611b5b565b91505060608301518482036060860152611bf18282611b5b565b91505060808301518482036080860152611c0b8282611b5b565b9150508091505092915050565b60006020820190508181036000830152611c328184611b94565b905092915050565b600060e083016000830151611c526000860182611b3b565b5060208301518482036020860152611c6a8282611b5b565b9150506040830151611c7f6040860182611b2c565b506060830151611c926060860182611b3b565b506080830151611ca56080860182611b3b565b5060a0830151611cb860a0860182611b3b565b5060c0830151611ccb60c0860182611b3b565b508091505092915050565b60006020820190508181036000830152611cf08184611c3a565b905092915050565b600081519050919050565b600082825260208201905092915050565b6000819050602082019050919050565b600060e083016000830151611d3c6000860182611b3b565b5060208301518482036020860152611d548282611b5b565b9150506040830151611d696040860182611b2c565b506060830151611d7c6060860182611b3b565b506080830151611d8f6080860182611b3b565b5060a0830151611da260a0860182611b3b565b5060c0830151611db560c0860182611b3b565b508091505092915050565b6000611dcc8383611d24565b905092915050565b6000602082019050919050565b6000611dec82611cf8565b611df68185611d03565b935083602082028501611e0885611d14565b8060005b85811015611e445784840389528151611e258582611dc0565b9450611e3083611dd4565b925060208a01995050600181019050611e0c565b50829750879550505050505092915050565b60006020820190508181036000830152611e708184611de1565b905092915050565b600080fd5b600080fd5b7f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b611eba82611a3b565b810181811067ffffffffffffffff82111715611ed957611ed8611e82565b5b80604052505050565b6000611eec6118c9565b9050611ef88282611eb1565b919050565b600067ffffffffffffffff821115611f1857611f17611e82565b5b611f2182611a3b565b9050602081019050919050565b82818337600083830152505050565b6000611f50611f4b84611efd565b611ee2565b905082815260208101848484011115611f6c57611f6b611e7d565b5b611f77848285611f2e565b509392505050565b600082601f830112611f9457611f93611e78565b5b8135611fa4848260208601611f3d565b91505092915050565b600080600060608486031215611fc657611fc56118d3565b5b600084013567ffffffffffffffff811115611fe457611fe36118d8565b5b611ff086828701611f7f565b935050602084013567ffffffffffffffff811115612011576120106118d8565b5b61201d86828701611f7f565b925050604084013567ffffffffffffffff81111561203e5761203d6118d8565b5b61204a86828701611f7f565b9150509250925092565b6000806040838503121561206b5761206a6118d3565b5b6000612079858286016118fe565b925050602083013567ffffffffffffffff81111561209a576120996118d8565b5b6120a685828601611f7f565b9150509250929050565b6000602082840312156120c6576120c56118d3565b5b600082013567ffffffffffffffff8111156120e4576120e36118d8565b5b6120f084828501611f7f565b91505092915050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052602260045260246000fd5b6000600282049050600182168061214057607f821691505b602082108103612153576121526120f9565b5b50919050565b600081905092915050565b60008190508160005260206000209050919050565b6000815461218681612128565b6121908186612159565b945060018216600081146121ab57600181146121c0576121f3565b60ff19831686528115158202860193506121f3565b6121c985612164565b60005b838110156121eb578154818901526001820191506020810190506121cc565b838801955050505b50505092915050565b60006122088284612179565b915081905092915050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fd5b600061224d826118dd565b91507fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff820361227f5761227e612213565b5b600182019050919050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b7f55736572206e6f7420666f756e64000000000000000000000000000000000000600082015250565b60006122ef600e83611a00565b91506122fa826122b9565b602082019050919050565b6000602082019050818103600083015261231e816122e2565b9050919050565b6000612330826119f5565b61233a8185612159565b935061234a818560208601611a11565b80840191505092915050565b60006123628284612325565b915081905092915050565b60006020601f8301049050919050565b600082821b905092915050565b6000600883026123ba7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff8261237d565b6123c4868361237d565b95508019841693508086168417925050509392505050565b6000819050919050565b60006124016123fc6123f7846118dd565b6123dc565b6118dd565b9050919050565b6000819050919050565b61241b836123e6565b61242f61242782612408565b84845461238a565b825550505050565b600090565b612444612437565b61244f818484612412565b505050565b5b818110156124735761246860008261243c565b600181019050612455565b5050565b601f8211156124b85761248981612164565b6124928461236d565b810160208510156124a1578190505b6124b56124ad8561236d565b830182612454565b50505b505050565b600082821c905092915050565b60006124db600019846008026124bd565b1980831691505092915050565b60006124f483836124ca565b9150826002028217905092915050565b61250d826119f5565b67ffffffffffffffff81111561252657612525611e82565b5b6125308254612128565b61253b828285612477565b600060209050601f83116001811461256e576000841561255c578287015190505b61256685826124e8565b8655506125ce565b601f19841661257c86612164565b60005b828110156125a45784890151825560018201915060208501945060208101905061257f565b868310156125c157848901516125bd601f8916826124ca565b8355505b6001600288020188555050505b505050505050565b60006125e1826118dd565b91506125ec836118dd565b925082820390508181111561260457612603612213565b5b92915050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052603160045260246000fdfea26469706673582212205b755ce59333b2be7a05263ffcb04ae9419e5ff70393d46bda4f521ff061ed6464736f6c63430008110033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100ce5760003560e01c80639fc226f41161008c578063cb2b6f1411610066578063cb2b6f141461024f578063d6143c011461026b578063db366eac14610287578063f56e7ada146102a3576100ce565b80639fc226f4146101d1578063ac1b97f614610201578063aca852a014610231576100ce565b8062f0b205146100d357806310fe472b146101035780634e04a4d2146101335780636f77926b14610169578063991fb19314610199578063997d9fd3146101b5575b600080fd5b6100ed60048036038101906100e89190611913565b6102bf565b6040516100fa919061194f565b60405180910390f35b61011d600480360381019061011891906119c8565b6102e3565b60405161012a9190611a85565b60405180910390f35b61014d60048036038101906101489190611913565b6103b4565b6040516101609796959493929190611ab6565b60405180910390f35b610183600480360381019061017e91906119c8565b61049e565b6040516101909190611c18565b60405180910390f35b6101b360048036038101906101ae9190611913565b61072a565b005b6101cf60048036038101906101ca9190611913565b6107dd565b005b6101eb60048036038101906101e69190611913565b610890565b6040516101f89190611cd6565b60405180910390f35b61021b600480360381019061021691906119c8565b6109f4565b6040516102289190611e56565b60405180910390f35b610239610d98565b6040516102469190611e56565b60405180910390f35b61026960048036038101906102649190611fad565b610f95565b005b61028560048036038101906102809190612054565b611205565b005b6102a1600480360381019061029c9190611913565b6113b7565b005b6102bd60048036038101906102b891906120b0565b611575565b005b600181815481106102cf57600080fd5b906000526020600020016000915090505481565b6060600360008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020805461032f90612128565b80601f016020809104026020016040519081016040528092919081815260200182805461035b90612128565b80156103a85780601f1061037d576101008083540402835291602001916103a8565b820191906000526020600020905b81548152906001019060200180831161038b57829003601f168201915b50505050509050919050565b60006020528060005260406000206000915090508060000154908060010180546103dd90612128565b80601f016020809104026020016040519081016040528092919081815260200182805461040990612128565b80156104565780601f1061042b57610100808354040283529160200191610456565b820191906000526020600020905b81548152906001019060200180831161043957829003601f168201915b5050505050908060020160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060030154908060040154908060050154908060060154905087565b6104a66117d4565b6002600360008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206040516104f491906121fc565b90815260200160405180910390206040518060a00160405290816000820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020016001820154815260200160028201805461057d90612128565b80601f01602080910402602001604051908101604052809291908181526020018280546105a990612128565b80156105f65780601f106105cb576101008083540402835291602001916105f6565b820191906000526020600020905b8154815290600101906020018083116105d957829003601f168201915b5050505050815260200160038201805461060f90612128565b80601f016020809104026020016040519081016040528092919081815260200182805461063b90612128565b80156106885780601f1061065d57610100808354040283529160200191610688565b820191906000526020600020905b81548152906001019060200180831161066b57829003601f168201915b505050505081526020016004820180546106a190612128565b80601f01602080910402602001604051908101604052809291908181526020018280546106cd90612128565b801561071a5780601f106106ef5761010080835404028352916020019161071a565b820191906000526020600020905b8154815290600101906020018083116106fd57829003601f168201915b5050505050815250509050919050565b6000600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020805461077690612128565b9050116107af576040517f6ea052f700000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60008082815260200190815260200160002060030160008154809291906107d590612242565b919050555050565b6000600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020805461082990612128565b905011610862576040517f6ea052f700000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b600080828152602001908152602001600020600401600081548092919061088890612242565b919050555050565b610898611819565b600080600184815481106108af576108ae61228a565b5b906000526020600020015481526020019081526020016000206040518060e0016040529081600082015481526020016001820180546108ed90612128565b80601f016020809104026020016040519081016040528092919081815260200182805461091990612128565b80156109665780601f1061093b57610100808354040283529160200191610966565b820191906000526020600020905b81548152906001019060200180831161094957829003601f168201915b505050505081526020016002820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020016003820154815260200160048201548152602001600582015481526020016006820154815250509050919050565b6060600073ffffffffffffffffffffffffffffffffffffffff168273ffffffffffffffffffffffffffffffffffffffff1603610a65576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610a5c90612305565b60405180910390fd5b6000805b600180549050811015610b2a57600060018281548110610a8c57610a8b61228a565b5b90600052602060002001549050600080600083815260200190815260200160002090508573ffffffffffffffffffffffffffffffffffffffff168160020160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1603610b15578380610b1190612242565b9450505b50508080610b2290612242565b915050610a69565b5060008167ffffffffffffffff811115610b4757610b46611e82565b5b604051908082528060200260200182016040528015610b8057816020015b610b6d611819565b815260200190600190039081610b655790505b5090506000805b600180549050811015610d8c57600060018281548110610baa57610ba961228a565b5b90600052602060002001549050600080600083815260200190815260200160002090508773ffffffffffffffffffffffffffffffffffffffff168160020160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1603610d7757806040518060e001604052908160008201548152602001600182018054610c4a90612128565b80601f0160208091040260200160405190810160405280929190818152602001828054610c7690612128565b8015610cc35780601f10610c9857610100808354040283529160200191610cc3565b820191906000526020600020905b815481529060010190602001808311610ca657829003601f168201915b505050505081526020016002820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001600382015481526020016004820154815260200160058201548152602001600682015481525050858581518110610d5d57610d5c61228a565b5b60200260200101819052508380610d7390612242565b9450505b50508080610d8490612242565b915050610b87565b50819350505050919050565b6060600060018054905067ffffffffffffffff811115610dbb57610dba611e82565b5b604051908082528060200260200182016040528015610df457816020015b610de1611819565b815260200190600190039081610dd95790505b50905060005b600180549050811015610f8d5760008060018381548110610e1e57610e1d61228a565b5b906000526020600020015481526020019081526020016000206040518060e001604052908160008201548152602001600182018054610e5c90612128565b80601f0160208091040260200160405190810160405280929190818152602001828054610e8890612128565b8015610ed55780601f10610eaa57610100808354040283529160200191610ed5565b820191906000526020600020905b815481529060010190602001808311610eb857829003601f168201915b505050505081526020016002820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001600382015481526020016004820154815260200160058201548152602001600682015481525050828281518110610f6f57610f6e61228a565b5b60200260200101819052508080610f8590612242565b915050610dfa565b508091505090565b6000600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000208054610fe190612128565b90501461101a576040517fe7b9820700000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b600073ffffffffffffffffffffffffffffffffffffffff166002846040516110429190612356565b908152602001604051809103902060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16146110c1576040517f9588623100000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b82600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020908161110d9190612504565b506040518060a001604052803373ffffffffffffffffffffffffffffffffffffffff168152602001600081526020018381526020018481526020018281525060028460405161115c9190612356565b908152602001604051809103902060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506020820151816001015560408201518160020190816111d09190612504565b5060608201518160030190816111e69190612504565b5060808201518160040190816111fc9190612504565b50905050505050565b6000600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020805461125190612128565b90501161128a576040517f6ea052f700000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60006040518060a001604052808481526020013373ffffffffffffffffffffffffffffffffffffffff1681526020016000815260200160008152602001838152509050600460008481526020019081526020016000208190806001815401808255809150506001900390600052602060002090600502016000909190919091506000820151816000015560208201518160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550604082015181600201556060820151816003015560808201518160040190816113849190612504565b50505060008084815260200190815260200160002060050160008154809291906113ad90612242565b9190505550505050565b6000600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020805461140390612128565b90501161143c576040517f6ea052f700000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60005b6001805490508110156114fd5781600182815481106114615761146061228a565b5b9060005260206000200154036114ea57600180808054905061148391906125d6565b815481106114945761149361228a565b5b9060005260206000200154600182815481106114b3576114b261228a565b5b906000526020600020018190555060018054806114d3576114d261260a565b5b600190038181906000526020600020016000905590555b80806114f590612242565b91505061143f565b50600080828152602001908152602001600020600080820160009055600182016000611529919061186c565b6002820160006101000a81549073ffffffffffffffffffffffffffffffffffffffff02191690556003820160009055600482016000905560058201600090556006820160009055505050565b6000600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002080546115c190612128565b9050116115fa576040517f6ea052f700000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6000815111611635576040517f5bd9966000000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b61012081511115611672576040517f511de86200000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60006040518060e0016040528060018054905081526020018381526020013373ffffffffffffffffffffffffffffffffffffffff1681526020016000815260200160008152602001600081526020014281525090508060008060018054905081526020019081526020016000206000820151816000015560208201518160010190816116fe9190612504565b5060408201518160020160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550606082015181600301556080820151816004015560a0820151816005015560c082015181600601559050506001805490507fd417cb85437645827d67d25d46230d406c961d982fd13e671384fdc0bf43d27860405160405180910390a26001808054905090806001815401808255809150506001900390600052602060002001600090919091909150555050565b6040518060a00160405280600073ffffffffffffffffffffffffffffffffffffffff168152602001600081526020016060815260200160608152602001606081525090565b6040518060e001604052806000815260200160608152602001600073ffffffffffffffffffffffffffffffffffffffff168152602001600081526020016000815260200160008152602001600081525090565b50805461187890612128565b6000825580601f1061188a57506118a9565b601f0160209004906000526020600020908101906118a891906118ac565b5b50565b5b808211156118c55760008160009055506001016118ad565b5090565b6000604051905090565b600080fd5b600080fd5b6000819050919050565b6118f0816118dd565b81146118fb57600080fd5b50565b60008135905061190d816118e7565b92915050565b600060208284031215611929576119286118d3565b5b6000611937848285016118fe565b91505092915050565b611949816118dd565b82525050565b60006020820190506119646000830184611940565b92915050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b60006119958261196a565b9050919050565b6119a58161198a565b81146119b057600080fd5b50565b6000813590506119c28161199c565b92915050565b6000602082840312156119de576119dd6118d3565b5b60006119ec848285016119b3565b91505092915050565b600081519050919050565b600082825260208201905092915050565b60005b83811015611a2f578082015181840152602081019050611a14565b60008484015250505050565b6000601f19601f8301169050919050565b6000611a57826119f5565b611a618185611a00565b9350611a71818560208601611a11565b611a7a81611a3b565b840191505092915050565b60006020820190508181036000830152611a9f8184611a4c565b905092915050565b611ab08161198a565b82525050565b600060e082019050611acb600083018a611940565b8181036020830152611add8189611a4c565b9050611aec6040830188611aa7565b611af96060830187611940565b611b066080830186611940565b611b1360a0830185611940565b611b2060c0830184611940565b98975050505050505050565b611b358161198a565b82525050565b611b44816118dd565b82525050565b600082825260208201905092915050565b6000611b66826119f5565b611b708185611b4a565b9350611b80818560208601611a11565b611b8981611a3b565b840191505092915050565b600060a083016000830151611bac6000860182611b2c565b506020830151611bbf6020860182611b3b565b5060408301518482036040860152611bd78282611b5b565b91505060608301518482036060860152611bf18282611b5b565b91505060808301518482036080860152611c0b8282611b5b565b9150508091505092915050565b60006020820190508181036000830152611c328184611b94565b905092915050565b600060e083016000830151611c526000860182611b3b565b5060208301518482036020860152611c6a8282611b5b565b9150506040830151611c7f6040860182611b2c565b506060830151611c926060860182611b3b565b506080830151611ca56080860182611b3b565b5060a0830151611cb860a0860182611b3b565b5060c0830151611ccb60c0860182611b3b565b508091505092915050565b60006020820190508181036000830152611cf08184611c3a565b905092915050565b600081519050919050565b600082825260208201905092915050565b6000819050602082019050919050565b600060e083016000830151611d3c6000860182611b3b565b5060208301518482036020860152611d548282611b5b565b9150506040830151611d696040860182611b2c565b506060830151611d7c6060860182611b3b565b506080830151611d8f6080860182611b3b565b5060a0830151611da260a0860182611b3b565b5060c0830151611db560c0860182611b3b565b508091505092915050565b6000611dcc8383611d24565b905092915050565b6000602082019050919050565b6000611dec82611cf8565b611df68185611d03565b935083602082028501611e0885611d14565b8060005b85811015611e445784840389528151611e258582611dc0565b9450611e3083611dd4565b925060208a01995050600181019050611e0c565b50829750879550505050505092915050565b60006020820190508181036000830152611e708184611de1565b905092915050565b600080fd5b600080fd5b7f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b611eba82611a3b565b810181811067ffffffffffffffff82111715611ed957611ed8611e82565b5b80604052505050565b6000611eec6118c9565b9050611ef88282611eb1565b919050565b600067ffffffffffffffff821115611f1857611f17611e82565b5b611f2182611a3b565b9050602081019050919050565b82818337600083830152505050565b6000611f50611f4b84611efd565b611ee2565b905082815260208101848484011115611f6c57611f6b611e7d565b5b611f77848285611f2e565b509392505050565b600082601f830112611f9457611f93611e78565b5b8135611fa4848260208601611f3d565b91505092915050565b600080600060608486031215611fc657611fc56118d3565b5b600084013567ffffffffffffffff811115611fe457611fe36118d8565b5b611ff086828701611f7f565b935050602084013567ffffffffffffffff811115612011576120106118d8565b5b61201d86828701611f7f565b925050604084013567ffffffffffffffff81111561203e5761203d6118d8565b5b61204a86828701611f7f565b9150509250925092565b6000806040838503121561206b5761206a6118d3565b5b6000612079858286016118fe565b925050602083013567ffffffffffffffff81111561209a576120996118d8565b5b6120a685828601611f7f565b9150509250929050565b6000602082840312156120c6576120c56118d3565b5b600082013567ffffffffffffffff8111156120e4576120e36118d8565b5b6120f084828501611f7f565b91505092915050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052602260045260246000fd5b6000600282049050600182168061214057607f821691505b602082108103612153576121526120f9565b5b50919050565b600081905092915050565b60008190508160005260206000209050919050565b6000815461218681612128565b6121908186612159565b945060018216600081146121ab57600181146121c0576121f3565b60ff19831686528115158202860193506121f3565b6121c985612164565b60005b838110156121eb578154818901526001820191506020810190506121cc565b838801955050505b50505092915050565b60006122088284612179565b915081905092915050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fd5b600061224d826118dd565b91507fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff820361227f5761227e612213565b5b600182019050919050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b7f55736572206e6f7420666f756e64000000000000000000000000000000000000600082015250565b60006122ef600e83611a00565b91506122fa826122b9565b602082019050919050565b6000602082019050818103600083015261231e816122e2565b9050919050565b6000612330826119f5565b61233a8185612159565b935061234a818560208601611a11565b80840191505092915050565b60006123628284612325565b915081905092915050565b60006020601f8301049050919050565b600082821b905092915050565b6000600883026123ba7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff8261237d565b6123c4868361237d565b95508019841693508086168417925050509392505050565b6000819050919050565b60006124016123fc6123f7846118dd565b6123dc565b6118dd565b9050919050565b6000819050919050565b61241b836123e6565b61242f61242782612408565b84845461238a565b825550505050565b600090565b612444612437565b61244f818484612412565b505050565b5b818110156124735761246860008261243c565b600181019050612455565b5050565b601f8211156124b85761248981612164565b6124928461236d565b810160208510156124a1578190505b6124b56124ad8561236d565b830182612454565b50505b505050565b600082821c905092915050565b60006124db600019846008026124bd565b1980831691505092915050565b60006124f483836124ca565b9150826002028217905092915050565b61250d826119f5565b67ffffffffffffffff81111561252657612525611e82565b5b6125308254612128565b61253b828285612477565b600060209050601f83116001811461256e576000841561255c578287015190505b61256685826124e8565b8655506125ce565b601f19841661257c86612164565b60005b828110156125a45784890151825560018201915060208501945060208101905061257f565b868310156125c157848901516125bd601f8916826124ca565b8355505b6001600288020188555050505b505050505050565b60006125e1826118dd565b91506125ec836118dd565b925082820390508181111561260457612603612213565b5b92915050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052603160045260246000fdfea26469706673582212205b755ce59333b2be7a05263ffcb04ae9419e5ff70393d46bda4f521ff061ed6464736f6c63430008110033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "stateVariables": {
+      "s_users": {
+        "details": "this variable is use checking if user is exists and usrname will act as a id"
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 53,
+        "contract": "contracts/DeTwitter.sol:DeTwitter",
+        "label": "s_posts",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_mapping(t_uint256,t_struct(Post)37_storage)"
+      },
+      {
+        "astId": 56,
+        "contract": "contracts/DeTwitter.sol:DeTwitter",
+        "label": "s_post_ids",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_array(t_uint256)dyn_storage"
+      },
+      {
+        "astId": 62,
+        "contract": "contracts/DeTwitter.sol:DeTwitter",
+        "label": "s_users",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_mapping(t_string_memory_ptr,t_struct(User)22_storage)"
+      },
+      {
+        "astId": 66,
+        "contract": "contracts/DeTwitter.sol:DeTwitter",
+        "label": "s_usernames",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_mapping(t_address,t_string_storage)"
+      },
+      {
+        "astId": 72,
+        "contract": "contracts/DeTwitter.sol:DeTwitter",
+        "label": "s_postToComment",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_mapping(t_uint256,t_array(t_struct(Comment)48_storage)dyn_storage)"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_struct(Comment)48_storage)dyn_storage": {
+        "base": "t_struct(Comment)48_storage",
+        "encoding": "dynamic_array",
+        "label": "struct DeTwitter.Comment[]",
+        "numberOfBytes": "32"
+      },
+      "t_array(t_uint256)dyn_storage": {
+        "base": "t_uint256",
+        "encoding": "dynamic_array",
+        "label": "uint256[]",
+        "numberOfBytes": "32"
+      },
+      "t_mapping(t_address,t_string_storage)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => string)",
+        "numberOfBytes": "32",
+        "value": "t_string_storage"
+      },
+      "t_mapping(t_string_memory_ptr,t_struct(User)22_storage)": {
+        "encoding": "mapping",
+        "key": "t_string_memory_ptr",
+        "label": "mapping(string => struct DeTwitter.User)",
+        "numberOfBytes": "32",
+        "value": "t_struct(User)22_storage"
+      },
+      "t_mapping(t_uint256,t_array(t_struct(Comment)48_storage)dyn_storage)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => struct DeTwitter.Comment[])",
+        "numberOfBytes": "32",
+        "value": "t_array(t_struct(Comment)48_storage)dyn_storage"
+      },
+      "t_mapping(t_uint256,t_struct(Post)37_storage)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => struct DeTwitter.Post)",
+        "numberOfBytes": "32",
+        "value": "t_struct(Post)37_storage"
+      },
+      "t_string_memory_ptr": {
+        "encoding": "bytes",
+        "label": "string",
+        "numberOfBytes": "32"
+      },
+      "t_string_storage": {
+        "encoding": "bytes",
+        "label": "string",
+        "numberOfBytes": "32"
+      },
+      "t_struct(Comment)48_storage": {
+        "encoding": "inplace",
+        "label": "struct DeTwitter.Comment",
+        "members": [
+          {
+            "astId": 39,
+            "contract": "contracts/DeTwitter.sol:DeTwitter",
+            "label": "post_id",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 41,
+            "contract": "contracts/DeTwitter.sol:DeTwitter",
+            "label": "comment_by",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_address"
+          },
+          {
+            "astId": 43,
+            "contract": "contracts/DeTwitter.sol:DeTwitter",
+            "label": "uproot_count",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 45,
+            "contract": "contracts/DeTwitter.sol:DeTwitter",
+            "label": "downroot_count",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 47,
+            "contract": "contracts/DeTwitter.sol:DeTwitter",
+            "label": "comment",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_string_storage"
+          }
+        ],
+        "numberOfBytes": "160"
+      },
+      "t_struct(Post)37_storage": {
+        "encoding": "inplace",
+        "label": "struct DeTwitter.Post",
+        "members": [
+          {
+            "astId": 24,
+            "contract": "contracts/DeTwitter.sol:DeTwitter",
+            "label": "post_id",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 26,
+            "contract": "contracts/DeTwitter.sol:DeTwitter",
+            "label": "post",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 28,
+            "contract": "contracts/DeTwitter.sol:DeTwitter",
+            "label": "owner",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_address"
+          },
+          {
+            "astId": 30,
+            "contract": "contracts/DeTwitter.sol:DeTwitter",
+            "label": "like_count",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 32,
+            "contract": "contracts/DeTwitter.sol:DeTwitter",
+            "label": "dislike_count",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 34,
+            "contract": "contracts/DeTwitter.sol:DeTwitter",
+            "label": "comment_count",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 36,
+            "contract": "contracts/DeTwitter.sol:DeTwitter",
+            "label": "timestamp",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_uint256"
+          }
+        ],
+        "numberOfBytes": "224"
+      },
+      "t_struct(User)22_storage": {
+        "encoding": "inplace",
+        "label": "struct DeTwitter.User",
+        "members": [
+          {
+            "astId": 13,
+            "contract": "contracts/DeTwitter.sol:DeTwitter",
+            "label": "user_address",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_address"
+          },
+          {
+            "astId": 15,
+            "contract": "contracts/DeTwitter.sol:DeTwitter",
+            "label": "post_count",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 17,
+            "contract": "contracts/DeTwitter.sol:DeTwitter",
+            "label": "name",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 19,
+            "contract": "contracts/DeTwitter.sol:DeTwitter",
+            "label": "username",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 21,
+            "contract": "contracts/DeTwitter.sol:DeTwitter",
+            "label": "imgURI",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_string_storage"
+          }
+        ],
+        "numberOfBytes": "160"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

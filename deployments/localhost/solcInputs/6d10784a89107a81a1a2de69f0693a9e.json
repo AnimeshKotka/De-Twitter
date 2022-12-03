@@ -1,0 +1,35 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/DeTwitter.sol": {
+      "content": "// SPDX-License-Identifier: UNLICENSED\r\npragma solidity ^0.8.9;\r\n\r\n// decentralize twitter\r\n\r\nerror DeTitter_AlreadySignIn();\r\nerror DeTitter_NotSignIn();\r\nerror DeTitter_UserNametaken();\r\nerror DeTitter_EmptyContain();\r\nerror DeTitter_ContainTooLarge();\r\n\r\ncontract DeTwitter {\r\n  // structures\r\n  struct User {\r\n    address user_address;\r\n    uint256 post_count;\r\n    string name;\r\n    string username;\r\n    string imgURI;\r\n  }\r\n\r\n  struct Post {\r\n    uint256 post_id;\r\n    string post;\r\n    address owner;\r\n    uint256 like_count;\r\n    uint256 dislike_count;\r\n    uint256 comment_count;\r\n    uint timestamp;\r\n  }\r\n\r\n  struct Comment {\r\n    uint256 post_id;\r\n    address comment_by;\r\n    uint256 uproot_count;\r\n    uint256 downroot_count;\r\n    string comment;\r\n  }\r\n\r\n  // state variables\r\n\r\n  // address[] private s_users;\r\n  mapping(uint256 => Post) public s_posts;\r\n  uint256[] public s_post_ids;\r\n  /**\r\n   * @dev this variable is use checking if user is exists and usrname will act as a id\r\n   */\r\n  mapping(string => User) private s_users;\r\n  mapping(address => string) private s_usernames;\r\n  mapping(uint256 => Comment[]) private s_postToComment;\r\n\r\n  /* Events */\r\n  event NewTwitte(uint256 indexed post_id);\r\n\r\n  // State functions\r\n\r\n  function signUp(\r\n    string memory _username,\r\n    string memory _name,\r\n    string memory _imgURI\r\n  ) public {\r\n    if (bytes(s_usernames[msg.sender]).length != 0) {\r\n      revert DeTitter_AlreadySignIn();\r\n    }\r\n\r\n    if (s_users[_username].user_address != address(0)) {\r\n      revert DeTitter_UserNametaken();\r\n    }\r\n\r\n    s_usernames[msg.sender] = _username;\r\n    s_users[_username] = User({\r\n      user_address: msg.sender,\r\n      post_count: 0,\r\n      name: _name,\r\n      username: _username,\r\n      imgURI: _imgURI\r\n    });\r\n  }\r\n\r\n  // user post something\r\n\r\n  function AddNewDeTwitt(string memory _post) public {\r\n    if (bytes(s_usernames[msg.sender]).length <= 0) {\r\n      revert DeTitter_NotSignIn();\r\n    }\r\n\r\n    if (bytes(_post).length <= 0) {\r\n      revert DeTitter_EmptyContain();\r\n    }\r\n\r\n    if (bytes(_post).length > 288) {\r\n      revert DeTitter_ContainTooLarge();\r\n    }\r\n\r\n    // Comment[] storage comments = new Comment[](10);\r\n    Post memory post = Post({\r\n      post_id: s_post_ids.length,\r\n      post: _post,\r\n      owner: msg.sender,\r\n      like_count: 0,\r\n      dislike_count: 0,\r\n      comment_count: 0,\r\n      timestamp: block.timestamp\r\n    });\r\n    s_posts[s_post_ids.length] = post;\r\n    emit NewTwitte(s_post_ids.length);\r\n    s_post_ids.push(s_post_ids.length);\r\n  }\r\n\r\n  function GetAllDeTwittes() public view returns (Post[] memory) {\r\n    Post[] memory posts = new Post[](s_post_ids.length);\r\n    for (uint i = 0; i < s_post_ids.length; i++) {\r\n      posts[i] = s_posts[s_post_ids[i]];\r\n    }\r\n\r\n    return posts;\r\n  }\r\n\r\n  function deleteDeTweet(uint256 post_id) public {\r\n    if (bytes(s_usernames[msg.sender]).length <= 0) {\r\n      revert DeTitter_NotSignIn();\r\n    }\r\n    for (uint i = 0; i < s_post_ids.length; i++) {\r\n      if (s_post_ids[i] == post_id) {\r\n        s_post_ids[i] = s_post_ids[s_post_ids.length - 1];\r\n        s_post_ids.pop();\r\n      }\r\n    }\r\n    delete s_posts[post_id];\r\n  }\r\n\r\n  function likeDeTweet(uint256 post_id) public {\r\n    if (bytes(s_usernames[msg.sender]).length <= 0) {\r\n      revert DeTitter_NotSignIn();\r\n    }\r\n    s_posts[post_id].like_count++;\r\n  }\r\n\r\n  function dislikeDeTweet(uint256 post_id) public {\r\n    if (bytes(s_usernames[msg.sender]).length <= 0) {\r\n      revert DeTitter_NotSignIn();\r\n    }\r\n    s_posts[post_id].dislike_count++;\r\n  }\r\n\r\n  function commentDeTweet(uint256 _post_id, string memory _comment) public {\r\n     if (bytes(s_usernames[msg.sender]).length <= 0) {\r\n      revert DeTitter_NotSignIn();\r\n    }\r\n    Comment memory comment = Comment({\r\n      post_id: _post_id,\r\n      comment_by: msg.sender,\r\n      uproot_count: 0,\r\n      downroot_count: 0,\r\n      comment: _comment\r\n    });\r\n    s_postToComment[_post_id].push(comment);\r\n    s_posts[_post_id].comment_count++;\r\n  }\r\n\r\n  // user uproot/down root the comment\r\n\r\n  // pure functions\r\n\r\n  function getUserNameByAddress(\r\n    address _user_address\r\n  ) public view returns (string memory) {\r\n    return s_usernames[_user_address];\r\n  }\r\n\r\n  function getUser(address _user_address) public view returns (User memory) {\r\n    return s_users[s_usernames[_user_address]];\r\n  }\r\n\r\n  function getCreatedTweets(\r\n    address _userAddress\r\n  ) public view returns (Post[] memory) {\r\n    require(_userAddress != address(0), \"User not found\");\r\n    uint myTweetLen = 0;\r\n    for (uint i = 0; i < s_post_ids.length; i++) {\r\n      uint currentId = s_post_ids[i];\r\n      Post storage currentTweet = s_posts[currentId];\r\n      if (currentTweet.owner == _userAddress) {\r\n        myTweetLen++;\r\n      }\r\n    }\r\n\r\n    Post[] memory allTweets = new Post[](myTweetLen);\r\n    uint currIndex = 0;\r\n    for (uint i = 0; i < s_post_ids.length; i++) {\r\n      uint currentId = s_post_ids[i];\r\n      Post storage currentTweet = s_posts[currentId];\r\n      if (currentTweet.owner == _userAddress) {\r\n        allTweets[currIndex] = currentTweet;\r\n        currIndex++;\r\n      }\r\n    }\r\n\r\n    return allTweets;\r\n  }\r\n\r\n  function getPostDetails(uint _post_id) public view returns (Post memory) {\r\n    return s_posts[s_post_ids[_post_id]];\r\n  }\r\n}\r\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": false,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}

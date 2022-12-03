@@ -26,6 +26,7 @@ contract DeTwitter {
     uint256 like_count;
     uint256 dislike_count;
     uint256 comment_count;
+    uint timestamp;
   }
 
   struct Comment {
@@ -98,7 +99,8 @@ contract DeTwitter {
       owner: msg.sender,
       like_count: 0,
       dislike_count: 0,
-      comment_count: 0
+      comment_count: 0,
+      timestamp: block.timestamp
     });
     s_posts[s_post_ids.length] = post;
     emit NewTwitte(s_post_ids.length);
@@ -166,8 +168,8 @@ contract DeTwitter {
     return s_usernames[_user_address];
   }
 
-  function getUsers(string memory _username) public view returns (User memory) {
-    return s_users[_username];
+  function getUser(address _user_address) public view returns (User memory) {
+    return s_users[s_usernames[_user_address]];
   }
 
   function getCreatedTweets(
