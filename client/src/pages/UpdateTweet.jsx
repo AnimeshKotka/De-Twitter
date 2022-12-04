@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { UserContext } from '../providers/userContext';
 import { getContractWrite, handleErr } from '../utils';
 
 const UpdateTweet = () => {

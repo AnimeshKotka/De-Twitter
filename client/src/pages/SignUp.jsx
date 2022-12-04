@@ -1,11 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { UserContext } from '../providers/userContext';
-import { create as ipfsHttpClient } from 'ipfs-http-client';
 import uuid from 'react-uuid';
 import moment from 'moment';
 import Card from '../components/Card';
 
-const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0');
 
 const SignUp = () => {
 	const {
@@ -16,8 +14,8 @@ const SignUp = () => {
 
 	const [userName, setUserName] = useState('');
 	const [fullName, setFullName] = useState('');
-	const [loading, setLoading] = useState('');
-	const [imgLink, setimgLink] = useState('');
+	const [loading] = useState('');
+	const [imgLink] = useState('');
 
 
 

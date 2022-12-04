@@ -7,7 +7,6 @@ import MyTweets from './pages/MyTweets';
 import UpdateTweet from './pages/UpdateTweet';
 import UserProfile from './pages/UserProfile';
 import { UserContext } from './providers/userContext';
-import Identicon from "identicon.js";
 
 const App = () => {
 	const { isCorrectNetwork } = useContext(UserContext);
@@ -29,7 +28,7 @@ const App = () => {
 			<div className="w-full h-screen flex justify-center items-center">
 				<h1 className="text-2xl text-black text-center font-bold">
 					Please switch to{' '}
-					<span className="text-indigo-700">Mumbai testnet</span> to view the
+					<span className="text-indigo-700">Goreli testnet</span> to view the
 					Daap
 				</h1>
 			</div>

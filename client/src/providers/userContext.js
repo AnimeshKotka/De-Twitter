@@ -9,7 +9,6 @@ const { ethereum } = window;
 
 export const UserProvider = ({ children }) => {
 	const [currentAccount, setCurrentAccount] = useState('');
-	const [chainId, setChainId] = useState(null);
 	const [isCorrectNetwork, setIsCorrectNetwork] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const [currentUser, setCurrentUser] = useState(null);
@@ -23,10 +22,7 @@ export const UserProvider = ({ children }) => {
 
 			if (accounts.length > 0) {
 				setCurrentAccount(accounts[0]);
-				const provider = new ethers.providers.Web3Provider(ethereum);
 
-				const { chainId } = await provider.getNetwork(provider);
-				setChainId(chainId)
 			} else {
 				console.log('NO accoutns found');
 			}
@@ -206,7 +202,6 @@ export const UserProvider = ({ children }) => {
 				const provider = new ethers.providers.Web3Provider(ethereum);
 				const { chainId } = await provider.getNetwork(provider);
 				console.log('CHAIN ID : ', chainId);
-				setChainId(chainId);
 				setIsCorrectNetwork(chainId === 31337 || chainId === 5);
 			};
 

@@ -5,7 +5,7 @@ import { truncateEthAddress } from "../utils";
 import Identicon from "identicon.js";
 
 import { IconButton } from "rsuite";
-import { Admin, Menu, ArrowUp, Edit, Search } from '@rsuite/icons';
+import { Edit } from '@rsuite/icons';
 import {  FaRegThumbsUp, FaRegThumbsDown, FaRegTrashAlt } from 'react-icons/fa';
 
 // Import the default CSS
