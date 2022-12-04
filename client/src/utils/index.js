@@ -11,10 +11,11 @@ export const truncateEthAddress = (address) => {
 	return `${match[1]}…${match[2]}`;
 };
 
-export const getContractReadOnly = async () => {
+export const getContractReadOnly = () => {
 
 	const provider = new ethers.providers.Web3Provider(window.ethereum);
-	const { chainId } = await provider.getNetwork(provider);
+	const chainId = 5;
+	// const { chainId } = await provider.getNetwork(provider);
 	console.log('CHAIN ID : ', chainId);
 	const deCalendContract = new ethers.Contract(
 		contract.contractAddresses[chainId][0],
@@ -24,9 +25,10 @@ export const getContractReadOnly = async () => {
 	return deCalendContract;
 };
 
-export const getContractWrite = async () => {
+export const getContractWrite = () => {
 	const provider = new ethers.providers.Web3Provider(window.ethereum);
-	const { chainId } = await provider.getNetwork(provider);
+	// const { chainId } = await provider.getNetwork(provider);
+	const chainId = 5;
 	console.log('CHAIN ID : ', chainId);
 	const signer = provider.getSigner();
 	const deCalendContract = new ethers.Contract(
