@@ -13,7 +13,7 @@ import "rsuite/dist/rsuite.min.css";
 
 
 const Card = ({ message, timeStamp, author, tweetId, likeCount, dislikeCount }) => {
-	const { currentUser, deleteTweet } = useContext(UserContext);
+	const { currentUser, deleteTweet, likeTweet } = useContext(UserContext);
 	const ButtonStyle = { margin: "0px 10px" };
 	return (
 		<div className="bg-white shadow-md xl:w-6/12 w-11/12 rounded-md p-4 text-gray-500 font-semibold hover:shadow-lg space-y-2">
@@ -45,7 +45,7 @@ const Card = ({ message, timeStamp, author, tweetId, likeCount, dislikeCount }) 
 						</div>
 					</div>
 					<div className="flex flex-row items-center">
-					<IconButton icon={<FaRegThumbsUp />} color="cyan" 
+					<IconButton onClick={() => likeTweet(tweetId)} icon={<FaRegThumbsUp />} color="cyan" 
                 appearance="primary" style={ButtonStyle} ></IconButton>
 					<p className="px-2 py-1">{likeCount}</p>
 					<IconButton icon={<FaRegThumbsDown />} color="cyan" 

@@ -9,6 +9,7 @@ const { ethereum } = window;
 
 export const UserProvider = ({ children }) => {
 	const [currentAccount, setCurrentAccount] = useState('');
+	const [chainId, setChainId] = useState(null);
 	const [isCorrectNetwork, setIsCorrectNetwork] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const [currentUser, setCurrentUser] = useState(null);
@@ -22,6 +23,10 @@ export const UserProvider = ({ children }) => {
 
 			if (accounts.length > 0) {
 				setCurrentAccount(accounts[0]);
+				const provider = new ethers.providers.Web3Provider(ethereum);
+
+				const { chainId } = await provider.getNetwork(provider);
+				setChainId(chainId)
 			} else {
 				console.log('NO accoutns found');
 			}
@@ -61,8 +66,7 @@ export const UserProvider = ({ children }) => {
 		}
 
 		if (!avatar) {
-			avatar =
-				'https://external-preview.redd.it/RNHBb73nQjSDez_ZxyzDTA3inn0E0G670g29PqEdJbI.jpg?auto=webp&s=3e648825a26d115990fb327986c37e51e023fb0b';
+			avatar =''
 		}
 
 		const contract = getContractWrite();
@@ -117,6 +121,32 @@ export const UserProvider = ({ children }) => {
 		setLoading(false);
 	};
 
+	const likeTweet = async (tweet_id) => {
+		const contract = getContractWrite();
+		console.log(tweet_id);
+		const tx = await toast.promise(
+			contract.likeDeTweet(tweet_id),
+			{
+				loading: 'Publishing your tweet',
+				success: 'Liked!',
+				error: handleErr,
+			},
+			{
+				success: {
+					icon: '🚀',
+				},
+			}
+		);
+
+		await toast.promise(tx.wait(), {
+			loading: 'Minning transaction, Hold tight!',
+			success: 'Minned successfully !',
+			error: 'please wait 5 min and try again',
+		});
+
+		getAllTweet();
+	};
+	
 	const postTweet = async (tweet) => {
 		const contract = getContractWrite();
 		console.log(tweet);
@@ -176,6 +206,7 @@ export const UserProvider = ({ children }) => {
 				const provider = new ethers.providers.Web3Provider(ethereum);
 				const { chainId } = await provider.getNetwork(provider);
 				console.log('CHAIN ID : ', chainId);
+				setChainId(chainId);
 				setIsCorrectNetwork(chainId === 31337 || chainId === 5);
 			};
 
@@ -185,9 +216,9 @@ export const UserProvider = ({ children }) => {
 			ethereum.on('networkChanged', function (networkId) {
 				window.location.reload();
 			});
+			getChain();
 			checkIfWalletIsConnected();
 			getAllTweet();
-			getChain();
 		}
 	}, []);
 
@@ -212,6 +243,7 @@ export const UserProvider = ({ children }) => {
 				deleteTweet,
 				fetchMyTweets,
 				myTweets,
+				likeTweet
 			}}
 		>
 			{children}

@@ -19,26 +19,7 @@ const SignUp = () => {
 	const [loading, setLoading] = useState('');
 	const [imgLink, setimgLink] = useState('');
 
-	const handleImage = async (e) => {
-		if (!e.target.files[0]) {
-			console.log('No file uploaded');
-			return;
-		}
-		const file = e.target.files[0];
-		console.log('Image', file);
-		try {
-			setLoading('Uploading Image...');
-			const added = await client.add(file, {
-				progress: (prog) => console.log(`received: ${prog}`),
-			});
-			const url = `https://ipfs.infura.io/ipfs/${added.path}`;
-			console.log('url--', url);
-			setLoading('');
-			setimgLink(url);
-		} catch (error) {
-			console.log('Error uploading file: ', error);
-		}
-	};
+
 
 	return (
 		<div className="container mx-auto flex flex-col items-center justify-center space-y-5 pb-4">
@@ -73,28 +54,6 @@ const SignUp = () => {
 						placeholder="Full Name"
 						onChange={(e) => setFullName(e.target.value)}
 					/>
-				</div>
-				<div className="mb-4">
-					<label
-						className="block text-gray-700 text-sm font-bold mb-2 text-center"
-						htmlFor="fullName"
-					>
-						Avatar
-					</label>
-					<input
-						className="shadow appearance-none border rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-						id="fullName"
-						type="file"
-						accept="image/*"
-						onChange={handleImage}
-					/>
-					{imgLink && (
-						<img
-							src={imgLink}
-							alt="ipfs image"
-							className="w-12 h-12 rounded-full my-2"
-						/>
-					)}
 				</div>
 				<button
 					className="h-10 px-6 font-semibold rounded-md bg-indigo-500 text-white disabled:opacity-60"

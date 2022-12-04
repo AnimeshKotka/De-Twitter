@@ -8,6 +8,7 @@ const Home = () => {
 	const { postTweet, currentUser, tweets, loading } = useContext(UserContext);
 	const [tweet, setTweet] = useState('');
 
+	const widhtText = {width: '120%'};
 	return (
 		<div className="container mx-auto flex flex-col items-center justify-center space-y-5 pb-4">
 			<div className="bg-white shadow-md flex flex-col items-center justify-center rounded-md m-8 mt-1 p-4 xl:w-6/12 space-y-3 w-11/12">
@@ -19,11 +20,12 @@ const Home = () => {
 				{currentUser && (
 					<form>
 						<div className="my-4">
-							<input
+							<textarea
 								className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 								id="message"
-								type="text"
+								type="textarea"
 								placeholder="Message"
+								style={widhtText}
 								onChange={(e) => setTweet(e.target.value)}
 							/>
 						</div>

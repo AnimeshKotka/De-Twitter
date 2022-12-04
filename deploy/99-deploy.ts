@@ -7,7 +7,7 @@ const updateUI: DeployFunction = async function (
   hre: HardhatRuntimeEnvironment
 ) {
   const { network, ethers } = hre;
-  const chainId = "31337";
+  const chainId = network?.config?.chainId || '31337';
 
     console.log("Writing to front end...");
     // writing address

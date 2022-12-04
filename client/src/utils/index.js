@@ -11,22 +11,26 @@ export const truncateEthAddress = (address) => {
 	return `${match[1]}…${match[2]}`;
 };
 
-export const getContractReadOnly = () => {
+export const getContractReadOnly = async () => {
 
 	const provider = new ethers.providers.Web3Provider(window.ethereum);
+	const { chainId } = await provider.getNetwork(provider);
+	console.log('CHAIN ID : ', chainId);
 	const deCalendContract = new ethers.Contract(
-		contract.contractAddresses[31337][0],
+		contract.contractAddresses[chainId][0],
 		contract.abi,
 		provider
 	);
 	return deCalendContract;
 };
 
-export const getContractWrite = () => {
+export const getContractWrite = async () => {
 	const provider = new ethers.providers.Web3Provider(window.ethereum);
+	const { chainId } = await provider.getNetwork(provider);
+	console.log('CHAIN ID : ', chainId);
 	const signer = provider.getSigner();
 	const deCalendContract = new ethers.Contract(
-		contract.contractAddresses[31337][0],
+		contract.contractAddresses[chainId][0],
 		contract.abi,
 		signer
 	);
